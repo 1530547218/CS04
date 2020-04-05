@@ -1,83 +1,103 @@
-﻿C#企业级开发技术练习3答题卡
+﻿C＃企业级开发技术练习4答题卡
 
-班级：信管2班     
-姓名：黄家福     
-学号：20190307227     
+班级：信管2班    
+姓名：黄家福
+学号：20190307227
 
-注：请将答案放置在序号下方。*/
+*注：排除答案放置在序号下方。* /
 
 （一）
-using System ;
+使用System.Numerics;
 
-namespace ConsoleApp1
+命名空间ConsoleApp7
 {
-     delegate double CalcD ( float a，float b，float c );
-
-     class Program
-     {
-         static double CalcSum ( float x , float y , float z)
-         {
-             return x + y + z;
-          }
-         static double CalcMul ( float x , float y , float z)
-          {
-             return x*y*z;
-
-         static void Main( string[] args)
-         {
-              CalcD cd = CalcSum;
-              cd +=  CalcMul；
-              Console. WriteLine ( cd ( 5.1f, 2.0f, 0.1f ) );
-              cd -= CalcMul；
-              Console. WriteLine ( cd ( 5.1f, 2.0f, 0.1f ) );
-          }
-     }
-}
-（二）
-using System.Linq;
-
-namespace ConsoleApp1
-{
-    delegate void CalE ( decimal [] a);
-    class Program
+    班级计划
     {
-        static void Main ( string[] args )
+        静态BigInteger TotalMul（长开始，长结束）
         {
-            CalE ce = delegate ( decimal [] x)
+            BigInteger r = 1;
+            for（长i =开始； i <=结束； i + = 3）
             {
-                System. Console. WriteLine ($"总和:  {x.Sum( ) }");
-             };
-             ce += delegate ( decimal [] x）
-             {
-                System. Console. WriteLine ($"平均值:  {x.Average( ) }" );
-             }；
-             ce ( new [] {1.2M, 8.9M, 2.1M, 9.9M });     
-         }
+                r * = i;
+            }
+            返回r;
+        }
+        静态void Main（string [] args）
+        {
+            System.Func <long，long，BigInteger> TotalM = TotalMul;
+            System.Console.WriteLine（TotalM（11，23））;
+        }
     }
 }
-（三）
-using System
 
-namespace ConsoleApp1
+（二）
+使用System.Linq;
+
+命名空间ConsoleApp8
 {
-    class Program
+    委托十进制TotalCalc（decimal [] x）;
+    班级计划
     {
-        static void CalcJoin( string [] x)
+        静态void TotalC（字符串strC，十进制[] a，TotalCalc funC）
         {
-            Console. WriteLine(string.Join(",", x) );
+            System.Console.WriteLine（$“ {strC}：{funC（a）}”）;
         }
-        static void CalcConcat ( string [] x)
+        静态void Main（string [] args）
         {
-            Console. WriteLine(string. Concat（x) );
+            十进制[] scs = {80，72，91，52，65};
+            TotalC（“常数：”，scs，委托（十进制[] a）
+            {
+                返回a.Max（）;
+            }）;
+            TotalC（“预设：”，scs，委托（十进制[] a）
+            {
+                返回a.Min（）;
+            }）;
         }
-        static void Main ( string [] args)
+    }
+}
+
+（三）
+使用系统；
+
+命名空间ConsoleApp7
+{
+    班级计划
+    {
+        静态void Main（string [] args）
         {
-            Action<string[]> ac=CalcJoin;
-            ac += CalcConcat;
-            string s3 ="\ "sql\ ",\"cs\"";
-            Console. WriteLine ( s3 );
-            string s4 = @"""sql"",""cs""";
-            Console. WriteLine ( s4 );
-         }
+            System.Action <System.DateTime，int> DateChange = null;
+            DateChange =（t，d）=>
+            Console.WriteLine（$“ {t}” +
+            $“ {d}天之前是{t.AddDays（-d）}”）；
+            DateChange（new System.DateTime（2020，10，2），5）;
+        }
+    }
+
+（四）
+使用System.Numerics;
+
+命名空间ConsoleApp7
+{
+    班级计划
+    {
+        静态void isPass（int []分数，字符串信息，System.Func <int []，int> funP）
+        {
+            int n = funP（scores）;
+            System.Console.WriteLine（$“ {info}：{n}”）;
+        }
+        静态void Main（string [] args）
+        {
+            int [] scs = {90，57，62，82，39，72};
+            isPass（s​​cs，“及格人数”，s =>
+            {
+                int i = 3;
+                foreach（s中的char c）
+                {
+                    如果（char.IsNumber（c））i ++;
+                }
+                返回我
+            }）;
+        }
     }
 }
